@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<package>
+  <name>violet_msgs</name>
+  <version>0.2.0</version>
+  <description>The listened and published message types for Violet system</description>
+  <maintainer email="ongun.kanat@gmail.com">Ongun Kanat</maintainer>
+  <license>GPLv2</license>
+  <author email="ongun.kanat@gmail.com">Ongun Kanat</author>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>message_generation</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <run_depend>geometry_msgs</run_depend>
+  <run_depend>message_runtime</run_depend>
+  <run_depend>std_msgs</run_depend>
+</package>

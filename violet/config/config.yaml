@@ -1,0 +1,31 @@
+fixed_frame: /base
+predicate_options:
+    "fov":
+        minimum_distance_from_camera: 0.52
+        maximum_fov_angle: 0.436332313
+        maximum_fov_angle_vertical: 0.287979327
+    "on_table":
+        table_start:
+            x: 0.41
+            y: -0.92
+            z: -0.01
+        table_end:
+            x: 1.01
+            y: 0.68
+            z: -0.19
+    "on":
+        upper_limit_multiplier: 0.2
+        lower_limit_multiplier: 0.37
+input_source_options:
+    "LineMod":
+        min_volumetric_intersection: 0.05
+        confidence_confusion_matrix: [0.8, 0.2, 0.4, 0.6]
+        location_pdf_sigma_matrix: [0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.1]
+    "LineModHS":
+        min_volumetric_intersection: 0.05
+        confidence_confusion_matrix: [0.8, 0.2, 0.4, 0.6]
+        location_pdf_sigma_matrix: [0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.1]
+    "Segmentation":
+        min_cloud_intersection: 0.1
+        confidence_confusion_matrix: [0.9, 0.1, 0.45, 0.55]
+        location_pdf_sigma_matrix: [0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001]

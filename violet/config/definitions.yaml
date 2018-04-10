@@ -1,0 +1,49 @@
+defined_objects:
+    - "barilla_small":
+        size: {x: 0.075, y: 0.131, z: 0.155}
+        type: "barilla_small"
+        color: "blue"
+        shape: "prism"
+        material: "paper"
+    - "barilla_small_h1":
+        size: {x: 0.155, y: 0.131, z: 0.075}
+        type: "barilla_small"
+        color: "blue"
+        shape: "prism"
+        material: "paper"
+    - "salt":
+        size: {x: 0.06, y: 0.06, z: 0.175}
+        type: "salt"
+        color: "green"
+        shape: "cylinder"
+        material: "plastic"
+    - "pesto":
+        size: {x: 0.055, y: 0.055, z: 0.115}
+        type: "pesto"
+        color: "blue"
+        shape: "cylinder"
+        material: "glass"
+    - "hot_sauce":
+        size: {x: 0.03, y: 0.03, z: 0.113}
+        type: "hot_sauce"
+        color: "red"
+        shape: "cylinder"
+        material: "glass"
+    - "heinz":
+        size: {x: 0.065, y: 0.065, z: 0.1}
+        type: "heinz"
+        color: "red"
+        shape: "cylinder"
+        material: "metal"
+    - "flour":
+        size: {x: 0.04, y: 0.081, z: 0.09}
+        type: "flour"
+        color: "yellow"
+        shape: "prism"
+        material: "paper"
+    - "sanitas":
+        size: {x: 0.063, y: 0.09, z: 0.032}
+        type: "sanitas"
+        color: "yellow"
+        shape: "prism"
+        material: "paper"

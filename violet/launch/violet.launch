@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<launch>
+    <node pkg="violet" type="violet" name="violet" output="screen">
+        <rosparam subst_value="true" file="$(find violet)/config/config.yaml"/>
+        <rosparam subst_value="true">
+            input_source_options:
+                LineMod:
+                    detection_confusion_matrix_file: $(find violet)/config/linemod_confusion_matrix.csv
+                LineModHS:
+                    detection_confusion_matrix_file: $(find violet)/config/linemodhs_confusion_matrix.csv
+        </rosparam>
+        <rosparam subst_value="true" file="$(find violet)/config/definitions.yaml"/>
+    </node>
+</launch>

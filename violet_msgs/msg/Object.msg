@@ -1,0 +1,9 @@
+uint8 id
+float32 probability
+geometry_msgs/Pose pose
+geometry_msgs/Point size
+string name
+string type
+string color
+string material
+string shape

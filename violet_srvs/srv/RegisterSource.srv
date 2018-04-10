@@ -1,0 +1,14 @@
+# This service is used for registering ROS topics of input sources
+# whose interpreters are defined in inputsources folder of violet.
+
+# The name of the topic which will be listened by Violet
+string topic_name
+
+# Source algorithm name is the string for determining which children
+# class of InputSource will be used as interpreter of this source.
+# It must match the first parameter of DEFINE_INPUT_SOURCE macro in
+# the source file of input source interpreter implementation.
+string source_algorithm_name
+---
+bool success
+string message
