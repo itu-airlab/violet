@@ -43,4 +43,5 @@ $ rosrun violet violet_visualization_marker_publisher
 * [The Event Loop of Violet](event_loop.md)
 * [Adding Custom Input Sources](adding_input_sources.md)
 * [Using Bayesian Update API to Update Objects](using_bayes_update_api.md)
+* [Adding Custom Predicates](adding_predicates.md)
 

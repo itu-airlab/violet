@@ -25,6 +25,10 @@ Violet provides a simple API for updating object confidence and identity informa
 This is an example code for increasing object confidence. It is advised to look up API documentation for  **`InputSource`** class and documentation for  [adding your own custom input source](adding_input_sources.md).
 
 ```c++
+#include <violet/input_source.h>
+#include <violet/input_source_manager.h>
+#include <violet/bayesian_fusion.h>
+
 namespace violet {
 namespace inputsources {
 

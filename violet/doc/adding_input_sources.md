@@ -7,6 +7,9 @@ The class hierarchy of Violet provides flexibility to how to interpret the data 
 After designing your source node, decide on how to encode your message as ```violet_msgs/DetectionInfo```. The next step is designing an input source interpreter that extends ```violet::InputSource``` class. An empty example of an input source interpreter looks like this:
 
 ```c++
+#include <violet/input_source.h>
+#include <violet/input_source_manager.h>
+
 namespace violet {
 namespace inputsources {
 
