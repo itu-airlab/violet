@@ -159,34 +159,33 @@ void Segmentation::callback(const violet_msgs::DetectionInfo::ConstPtr &msg)
             if(cloudIntersectionRate(cur->location(), cur->size(), object_start, object_end) >= min_cloud_intersection) {
                 cur->setLastDetection(_src_name, msg->header.stamp);
                 cur->increaseConfidence(_confidence_confusion);
-
-                util::GaussianPdf update_pdf = cur->locationPDF();
-                util::updateGaussianPDF(update_pdf, cur->locationPDF());
-                cur->setLocationPDF(update_pdf);
-                cur->setLocation(tf::Point(update_pdf.mu(0),  update_pdf.mu(1), update_pdf.mu(2)));
                 matched_existing_object = true;
                 updated_objects.push_back(cur);
             }
         }
 
         if(updated_objects.size() == 1) {
-            updated_objects[0]->setSize(size);
+            if(updated_objects[0]->attribute(O_ATTR_NAME).first == "") { // If object is unknown
+                updated_objects[0]->setSize(size);
+            }
+
+            util::GaussianPdf pdf_to_update = updated_objects[0]->locationPDF();
+            util::GaussianPdf observation_pdf(Eigen::Vector3d(location.x(), location.y(), location.z()), _pdf.sigma);
+            util::updateGaussianPDF(pdf_to_update, observation_pdf);
+            updated_objects[0]->setLocationPDF(pdf_to_update);
+            updated_objects[0]->setLocation(tf::Point(pdf_to_update.mu(0),  pdf_to_update.mu(1), pdf_to_update.mu(2)));
         }
 
         if(!global_parameters::add_remove_paused && !matched_existing_object) {
             ObjectInfo *new_object = new ObjectInfo;
             kb->insertObject(new_object);
             new_object->setLocationPDF(util::GaussianPdf(Eigen::Vector3d(location.x(), location.y(), location.z()), _pdf.sigma));
+            new_object->setLocation(location);
             new_object->setOrientation(tf::Quaternion(0, 0, 0, 1));
             new_object->setSize(size);
             new_object->setLastDetection(_src_name, msg->header.stamp);
             new_object->increaseConfidence(_confidence_confusion);
             new_object->setFovFrame(sensor_frame_id);
-
-            util::GaussianPdf update_pdf = new_object->locationPDF();
-            util::updateGaussianPDF(update_pdf, new_object->locationPDF());
-            new_object->setLocationPDF(update_pdf);
-            new_object->setLocation(tf::Point(update_pdf.mu(0),  update_pdf.mu(1), update_pdf.mu(2)));
         }
 
     }
